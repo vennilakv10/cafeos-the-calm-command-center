@@ -1,24 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { CafeOS } from "@/components/cafe-os";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "CafeOS — Restaurant operations, made simple" },
+      { name: "description", content: "CafeOS brings orders, kitchen, inventory, finance and branches into one calm restaurant operating system." },
+      { property: "og:title", content: "CafeOS — Restaurant operations, made simple" },
+      { property: "og:description", content: "A modern operating system for cafés and QSRs across India and the GCC." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+  return <CafeOS />;
 }
