@@ -1,4 +1,4 @@
-import { useMemo, useState, type ComponentType } from "react";
+import { useState, type ComponentType, type ReactNode } from "react";
 import {
   Activity, AlertTriangle, ArrowDownRight, ArrowRight, ArrowUpRight, Bell, Boxes,
   Building2, CalendarDays, Check, CheckCircle2, ChevronDown, ChefHat, CircleDollarSign,
@@ -60,7 +60,7 @@ const products = [
   { name: "Brownie", price: 150, category: "Desserts", tone: "brownie", icon: "🍫" },
 ];
 
-function Status({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "success" | "warning" | "danger" | "info" | "neutral" }) {
+function Status({ children, tone = "neutral" }: { children: ReactNode; tone?: "success" | "warning" | "danger" | "info" | "neutral" }) {
   return <span className={cn("status", `status-${tone}`)}><span className="status-dot" />{children}</span>;
 }
 
